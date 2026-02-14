@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kucil 🤍</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#eef6ff,#ffffff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.phone{
+  width:360px;
+  max-width:95%;
+  background:#fff;
+  border-radius:26px;
+  padding:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  animation:fade .8s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(12px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+  text-align:center;
+  color:#3182ce;
+  margin-bottom:12px;
+}
+
+#text{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:14.5px;
+  line-height:1.7;
+  color:#2a4365;
+  padding:8px;
+  transition:opacity .4s ease;
+}
+
+img{
+  width:100%;
+  border-radius:18px;
+  margin-top:14px;
+  display:none;
+  box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+.photo-text{
+  text-align:center;
+  font-size:13px;
+  color:#4a6fa5;
+  margin-top:6px;
+  display:none;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+#next{
+  background:#3182ce;
+  color:#fff;
+}
+
+#dm{
+  display:none;
+  background:linear-gradient(45deg,#2b6cb0,#63b3ed);
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎧 MUSIK FUN-CHILL -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+</audio>
+
+<div class="phone">
+  <div>
+    <h1>🤍 For Kucil 🤍</h1>
+    <div id="text"></div>
+
+    <!-- FOTO DI AKHIR -->
+    <img id="photo" src="https://i.pinimg.com/736x/34/a1/fa/34a1fa28dbda906e555680793f0f7b87.jpg" alt="foto kenangan">
+    <div id="photoText" class="photo-text">
+      chaos • uno • keliling 🤍
+    </div>
+  </div>
+
+  <div>
+    <button id="next">Lanjut ➜</button>
+    <button id="dm" onclick="goDM()">Balas aku 🤍</button>
+  </div>
+</div>
+
+<script>
+const texts=[
+  "Hai Kucil 🤍",
+  "Aku bikin ini sambil senyum dikit.",
+  "Karena kepikiran kamu.",
+  "Awalnya kamu tuh soft typing banget.",
+  "Kayak orang kalem.",
+  "Terus lama-lama chat kamu mulai…",
+  "ngelantur.",
+  "random.",
+  "toxic dikit.",
+  "dan entah kenapa aku ketawa bacanya 😭",
+  "Aku suka main UNO sama kamu.",
+  "Suka keliling tanpa tujuan jelas.",
+  "Suka chaos bareng.",
+  "Semuanya seru kalau sama kamu.",
+  "Kamu tipe temen yang bikin capek tapi nagih.",
+  "Dan itu jujur aja…",
+  "aku suka banget 🤍"
+];
+
+let i=0;
+const textEl=document.getElementById("text");
+const nextBtn=document.getElementById("next");
+const photo=document.getElementById("photo");
+const photoText=document.getElementById("photoText");
+const dmBtn=document.getElementById("dm");
+
+textEl.innerHTML=texts[0];
+
+nextBtn.onclick=()=>{
+  i++;
+  textEl.style.opacity=0;
+
+  setTimeout(()=>{
+    if(i<texts.length){
+      textEl.innerHTML=texts[i];
+      textEl.style.opacity=1;
+    }else{
+      nextBtn.style.display="none";
+      photo.style.display="block";
+      photoText.style.display="block";
+      dmBtn.style.display="block";
+      textEl.innerHTML="Kalau kamu baca ini sambil ketawa,<br>berarti kamu ngerti 🤍";
+      textEl.style.opacity=1;
+    }
+  },300);
+};
+
+function goDM(){
+  const msg=encodeURIComponent(
+    "aku udah baca 🤍\n" +
+    "iya aku ngelantur dan toxic dikit 😭\n" +
+    "tapi seru kan.\n\n" +
+    "thanks ya kucil 🤍"
+  );
+
+  window.open(
+    "https://www.instagram.com/direct/new/?username=drugstprn&text="+msg,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
